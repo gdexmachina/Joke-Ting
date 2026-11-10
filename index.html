@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Random Joke Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="emoji">😂</div>
+
+        <h1>Random Joke Generator</h1>
+
+        <p class="subtitle">
+            Need a laugh? Let's brighten your day!
+        </p>
+
+        <!-- Current theme -->
+        <div class="theme-label">
+            🎨 Current Theme:
+            <span id="themeName">Purple Dream</span>
+        </div>
+
+        <!-- Joke display -->
+        <div class="joke-box" aria-live="polite">
+
+            <p id="joke">
+                Click the button below to get your first joke!
+            </p>
+
+        </div>
+
+        <!-- Main controls -->
+        <div class="buttons">
+
+            <button
+                class="next-btn"
+                id="nextBtn"
+                onclick="generateJoke()">
+
+                🎲 Tell Me a Joke
+
+            </button>
+
+            <div class="secondary-buttons">
+
+                <button
+                    id="likeBtn"
+                    onclick="likeJoke()">
+
+                    🤍 Like
+
+                </button>
+
+                <button
+                    id="copyBtn"
+                    onclick="copyJoke()">
+
+                    📋 Copy Joke
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Statistics -->
+        <div class="counter">
+
+            <div>
+                <span id="count">0</span>
+                <small>Jokes Viewed</small>
+            </div>
+
+            <div>
+                <span id="likes">0</span>
+                <small>Favourites</small>
+            </div>
+
+        </div>
+
+        <!-- Favourite jokes -->
+        <section class="favorites">
+
+            <h2>❤️ My Favourite Jokes</h2>
+
+            <p class="favorites-subtitle">
+                Your saved jokes are waiting for you!
+            </p>
+
+            <div id="favoritesList">
+
+                <p class="empty-message">
+                    You haven't saved any jokes yet.
+                </p>
+
+            </div>
+
+        </section>
+
+        <footer>
+            Made with ❤️ and a little humour!
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,510 @@
+
+/* ==========================================
+   RANDOM JOKE GENERATOR - COMPLETE STYLING
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   THEME VARIABLES
+   JavaScript changes these variables
+========================================== */
+
+:root {
+    --bg-one: #667eea;
+    --bg-two: #764ba2;
+    --bg-three: #e056fd;
+    --bg-four: #23a6d5;
+
+    --primary: #764ba2;
+    --accent: #e056fd;
+
+    --container: #ffffff;
+    --heading: #333333;
+    --text: #444444;
+    --muted: #888888;
+
+    --joke-card: #f5f3ff;
+    --joke-border: #764ba2;
+
+    --button-bg: #764ba2;
+    --button-text: #ffffff;
+
+    --secondary-bg: #eeeaff;
+    --secondary-text: #6846a0;
+
+    --favorite-bg: #f5f3ff;
+    --favorite-border: #764ba2;
+
+    --remove-bg: #ffe1e8;
+    --remove-text: #d6335c;
+
+    --label-bg: #f2edff;
+    --label-text: #764ba2;
+
+    --divider: #eeeeee;
+    --empty-bg: #faf9ff;
+
+    --shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   BODY AND ANIMATED BACKGROUND
+========================================== */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    background: linear-gradient(
+        -45deg,
+        var(--bg-one),
+        var(--bg-two),
+        var(--bg-three),
+        var(--bg-four)
+    );
+
+    background-size: 400% 400%;
+
+    animation: gradientMove 12s ease infinite;
+
+    transition: background-color 0.5s ease;
+}
+
+/* Moving gradient */
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    25% {
+        background-position: 50% 100%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    75% {
+        background-position: 50% 0%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+/* ==========================================
+   MAIN CONTAINER
+========================================== */
+
+.container {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 35px 30px;
+
+    background: var(--container);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 40px var(--shadow);
+
+    animation: appear 0.7s ease;
+
+    transition:
+        background 0.5s ease,
+        color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ==========================================
+   HEADING AND TEXT
+========================================== */
+
+.emoji {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+h1 {
+    color: var(--heading);
+    font-size: 27px;
+    margin-bottom: 10px;
+    transition: color 0.5s ease;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* ==========================================
+   THEME LABEL
+========================================== */
+
+.theme-label {
+    display: inline-block;
+
+    background: var(--label-bg);
+    color: var(--label-text);
+
+    padding: 9px 16px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+    transition: all 0.5s ease;
+}
+
+/* ==========================================
+   JOKE DISPLAY
+========================================== */
+
+.joke-box {
+    background: var(--joke-card);
+
+    border-left: 5px solid var(--joke-border);
+
+    padding: 25px 20px;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+
+    min-height: 140px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        background 0.5s ease,
+        border-color 0.5s ease;
+}
+
+#joke {
+    color: var(--text);
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+    white-space: pre-line;
+
+    transition: color 0.5s ease;
+}
+
+/* ==========================================
+   BUTTON LAYOUT
+========================================== */
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+button {
+    border: none;
+
+    padding: 14px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.5s ease,
+        color 0.5s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-3px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Main button */
+
+.next-btn {
+    background: var(--button-bg);
+    color: var(--button-text);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.next-btn:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+/* Secondary buttons */
+
+.secondary-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.secondary-buttons button {
+    flex: 1;
+
+    background: var(--secondary-bg);
+    color: var(--secondary-text);
+}
+
+.secondary-buttons button:hover:not(:disabled) {
+    filter: brightness(0.95);
+}
+
+/* Liked state */
+
+#likeBtn.liked {
+    background: var(--remove-bg);
+    color: var(--remove-text);
+}
+
+/* ==========================================
+   STATISTICS
+========================================== */
+
+.counter {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+
+    margin-top: 25px;
+
+    color: var(--primary);
+
+    transition: color 0.5s ease;
+}
+
+.counter div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.counter span {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.counter small {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* ==========================================
+   FAVOURITE JOKES
+========================================== */
+
+.favorites {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--divider);
+
+    text-align: left;
+
+    transition: border-color 0.5s ease;
+}
+
+.favorites h2 {
+    color: var(--primary);
+
+    font-size: 21px;
+
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    transition: color 0.5s ease;
+}
+
+.favorites-subtitle {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+#favoritesList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.favorite-item {
+    background: var(--favorite-bg);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border-left: 4px solid var(--favorite-border);
+
+    transition:
+        background 0.5s ease,
+        border-color 0.5s ease;
+}
+
+.favorite-joke {
+    color: var(--text);
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+
+    white-space: pre-line;
+}
+
+.favorite-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.favorite-actions button {
+    flex: 1;
+
+    padding: 10px;
+
+    font-size: 12px;
+
+    border-radius: 20px;
+}
+
+.view-btn {
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+.remove-btn {
+    background: var(--remove-bg);
+    color: var(--remove-text);
+}
+
+.empty-message {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    text-align: center;
+
+    padding: 20px 10px;
+
+    background: var(--empty-bg);
+
+    border-radius: 12px;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    color: var(--muted);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    #joke {
+        font-size: 16px;
+    }
+
+    .favorites h2 {
+        font-size: 18px;
+    }
+
+    .counter {
+        gap: 30px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    body {
+        animation: none;
+    }
+
+    .container {
+        animation: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
